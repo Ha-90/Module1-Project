@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        gap: 100px;
+    }
+
+    .label {
+        padding: 10px 0px 0px 0px;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    table {
+        margin-top: 30px;
+        min-width: 800px;
+        text-align: center;
+    }
+
+    td img {
+        width: 15%;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="container_addProduct">
+            <form action="">
+                <div style="font-size: 20px; font-weight: bold;">Thêm sản phẩm</div>
+                <div class="label">Image:</div>
+                <input id="input_image" type="text"><br>
+                <div class="label">Name:</div>
+                <input id="input_name" type="text"><br>
+                <div class="label">Price:</div>
+                <input id="input_price" type="text"><br>
+                <div class="label">Detail:</div>
+                <input id="input_detail" type="text"><br>
+                <div class="label">Code:</div>
+                <input id="input_code" type="text"><br><br>
+                <button id="saveBtn" onclick="saveList()">Save</button>
+            </form>
+        </div>
+        <div class="container_viewProduct">
+            <div style="font-size: 20px; font-weight: bold;">Thông tin sản phẩm</div>
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Detail</th>
+                    <th>Code</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+                <tbody id="showProduct">
+                    <tr>
+                        <!-- <td>STT</td>
+                        <td>Image</td>
+                        <td>Name</td>
+                        <td>Price</td>
+                        <td>Detail</td>
+                        <td>Id</td> -->
+                </tbody>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="/js/admin.js"></script>
+
+</html>

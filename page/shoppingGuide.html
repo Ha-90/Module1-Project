@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Poppins:ital,wght@0,300;0,600;0,700;0,800;0,900;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3b79043855.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Web Sell</title>
+</head>
+<style>
+    .shopping_guide h2, .shopping_guide h3, .shopping_guide a{
+        padding-left: 45px;
+        color: green;
+    }
+    .shopping_guide pre{
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+    }
+</style>
+
+<body>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="/index.html" class="navbar_logo">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <span class="navbar_logo_text">hoanghabook</span>
+            </a>
+            <ul class="navbar_menu">
+                <li><a href="/index.html">SÁCH TIẾNG NHẬT</a></li>
+                <li><a href="/page/introduce.html">GIỚI THIỆU</a></li>
+                <li><a href="/page/shoppingGuide.html">HƯỚNG DẪN MUA HÀNG</a></li>
+                <li><a href="/page/contact.html">LIÊN HỆ</a></li>
+            </ul>
+            <i class="fa-solid fa-bars"></i>
+            <ul class="navbar_features">
+                <li><a href="/page/cart.html" onclick="viewCart()" id="cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="/page/favorite.html" onclick="viewFavorite()" id="favorite"><i class="fa-solid fa-heart"></i></a></li>
+                <li><a href="/page/login.html"><i class="fa-solid fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="row">
+        <div class="product_container">
+            <div class="product_item" id="showProduct"></div>
+        </div>
+        <div class="shopping_guide">
+            <h2>Hướng dẫn mua hàng</h2>
+            <pre> 
+            <h3>I.HƯỚNG DẪN ĐẶT HÀNG</h3>
+            Cách 1: Đặt qua hotline 088.660.7526 (Zalo)
+            
+            Cách 2: Chat với shop qua <a href="https://www.facebook.com/hn.hoangha">facebook</a>
+            
+            Cách 3: Đặt qua email: hoangha@book.com
+            
+            Cách 4: Đặt trực tiếp tại website <a href="/index.html">(Xem chi tiết)</a> 
+            
+            <h3>II. THANH TOÁN</h3>
+            1. Thanh toán bằng tiền mặt
+
+            – Mua hàng và thanh toán tiền mặt trực tiếp tại cửa hàng
+
+            – Thanh toán tiền mặt cho nhân viên giao hàng lúc giao nhận.
+            
+            2. Thanh toán chuyển khoản qua ngân hàng
+
+            – Chuyển khoản trước qua ngân hàng và chờ giao hàng tận nhà
+            
+            – Chuyển khoản bằng internet banking hoặc VNpay tại cửa hàng.
+            
+            *Lưu ý: Cửa hàng không có hình thức quẹt thẻ.
+            
+            <h3>III. GIAO NHẬN</h3>
+            1. Nhận sách trực tiếp tại địa chỉ của Thư viện giáo trình tiếng Nhật
+
+            – Địa chỉ: Tầng 7, tháp B, tòa nhà Sông Đà, quận Nam Từ Liêm, TP. Hà Nội.
+            
+            – Giờ mở cửa: 08h30 đến 17h30 (Thứ 2 đến thứ 7)
+            
+            2. Giao hàng tận nơi
+
+            Cửa hàng nhận giao hàng trong phạm vi cả nước.
+            
+            Thời gian giao từ 1-2 ngày trong Tp.Hà Nội và từ 2-5 ngày các khu vực còn lại.
+            
+            <h3>IV. PHÍ GIAO HÀNG</h3>
+            Miễn phí giao hàng toàn quốc cho đơn hàng từ 400k.
+            
+            Xem thêm: Bảng giá phí vận chuyển.
+            
+            <h3>V. CHÍNH SÁCH ĐỔI TRẢ</h3>
+            Đổi trả hàng hóa trong vòng 07 ngày theo quy định của cửa hàng.
+            
+            <h3>VI. CHƯƠNG TRÌNH KHUYẾN MÃI</h3>
+            Các chương trình khuyến mãi thay đổi theo thời gian.
+            </pre>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_container">
+            <div class="col-3">
+                <h4>LIÊN HỆ VỚI CHÚNG TÔI</h4><br>
+                <p>Hotline: 0886607526</p>
+                <p>Email: hoangha@book.vn</p>
+                <p>Địa chỉ: Tầng 7, tháp B, tòa nhà Sông Đà</p>
+                <img src="/img/dangkybocongthuong.png" alt="">
+            </div>
+            <div class="col-3">
+                <h4>VỀ CHÚNG TÔI</h4><br>
+                <p>Giới thiệu về nhà sách</p>
+                <p>Hệ thống nhà sách</p>
+                <p>Chính sách bảo mật</p>
+                <p>Chính sách bán hàng</p>
+            </div>
+            <div class="col-3">
+                <h4>TÀI KHOẢN CỦA TÔI</h4><br>
+                <p>Đăng nhập</p>
+                <p>Tạo tài khoản</p>
+                <p>Danh sách so sánh</p>
+            </div>
+            <div class="col-3">
+                <h4>HỖ TRỢ KHÁCH HÀNG</h4><br>
+                <p>Câu hỏi thường gặp</p>
+                <p>Chính sách đổi trả</p>
+                <p>Quy định chung</p>
+            </div>
+            <div class="col-12">
+                <p>Copyright 2022 - Designed by <b>hoanghabook</b></p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="/js/cart.js"></script>
+
+</html>

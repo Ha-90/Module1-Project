@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/login-register.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <h2>Register</h2>
+        <form name="fR">
+            <label for="">Email:</label><br>
+            <input type="email" name="email" id="email" required>
+            <p id="message_email"></p>
+
+            <label for="">Current Password:</label><br>
+            <input type="password" name="password" id="password" required>
+            <i class="bi bi-eye-slash" id="togglePassword"></i>
+            <p id="notification"></p>
+
+            <label for="">New Password:</label><br>
+            <input type="password" name="password2" id="password2" required>
+            <i class="bi bi-eye-slash" id="togglePassword2"></i>
+            <p id="message_password2"></p>
+
+            <button id="btnRegister" onclick="changePasswordUser(event)">Confirm Change</button>
+
+        </form>
+    </fieldset>
+</body>
+<script src="/js/changePassUser.js"></script>
+
+</html>

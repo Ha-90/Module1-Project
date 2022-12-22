@@ -5,15 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Poppins:ital,wght@0,300;0,600;0,700;0,800;0,900;1,400;1,500&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/3b79043855.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Web Sell</title>
 </head>
+<style>
+   
+</style>
 
 <body>
     <header class="header">
@@ -28,47 +34,44 @@
                 <li><a href="/page/shoppingGuide.html">HƯỚNG DẪN MUA HÀNG</a></li>
                 <li><a href="/page/contact.html">LIÊN HỆ</a></li>
             </ul>
+            <i class="fa-solid fa-bars"></i>
             <ul class="navbar_features">
-                <li><a href="/page/cart.html" onclick="viewCart()" id="cart"><i
-                            class="fa-solid fa-cart-shopping"></i></a></li>
-                <li><a href="/page/favorite.html" onclick="viewFavorite()" id="favorite"><i
-                            class="fa-solid fa-heart"></i></a></li>
-                <li><a href="/page/login.html" id="loginLogout">Đăng nhập・Đăng ký</a></li>
-                <div class="dropdown">
-                    <i class="fa-solid fa-user" id="dropbtn"></i>
-                    <div class="dropdown_content">
-
-                        <a href="#" onclick="logOut()">Đăng xuất</a>
-                        <a href="/page/changePassUser.html">Đổi mật khẩu</a>
-                    </div>
-                </div>
+                <li><a href="/page/cart.html" onclick="viewCart()" id="cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="/page/favorite.html" onclick="viewFavorite()" id="favorite"><i class="fa-solid fa-heart"></i></a></li>
+                <li><a href="/page/login.html"><i class="fa-solid fa-user"></i></a></li>
             </ul>
-            <div id="menu_sort" onclick="showMenuSort()"><i class="fa-solid fa-bars"></i></div>
         </nav>
     </header>
     <main class="row">
-        <div class="container">
-            <div class="slide_show">
-                <div class="search_bar">
-                    <input type="text" id="search" placeholder="&#128270 Tìm kiếm sản phẩm tại đây &#128269">
-                    <button onclick="searchProduct()">Search</button>
-                </div>
-                <img id="slider" src="./img/slide-show-1.png" alt="">
-                <a class="next" onclick="next()">❯</a>
-                <a class="prev" onclick="prev()">❮</a>
-            </div>
-        </div>
-        <h2 class="title" id="title">Sách tiếng Nhật</h2>
         <div class="product_container">
-            <div class="product_item" id="showProduct">
-                <!-- <div class="product">
-                    <img id="product_image" src="" alt="hình ảnh sp">
-                    <h3 id="product_name">Minna no nihongo I</h3>
-                    <p id="product_price">300.000 <span>đ</span></p>
-                    <i onclick="addToCart()" class="fa-solid fa-cart-arrow-down"></i>
-                    <i onclick="addToFavorite()" class="fa-solid fa-heart-circle-plus"></i>
-                </div> -->
-            </div>
+            <div class="product_item" id="showProduct"></div>
+        </div>
+        <div class="shopping_guide">
+            <h2>Địa chỉ và liên hệ</h2>
+            <pre>
+
+            <i>hoanghabook– Hân hạnh chào đón quý khách!</i>
+            
+            <b>Địa chỉ:</b>
+            Địa chỉ: Tầng 7, tháp B, tòa nhà Sông Đà, quận Nam Từ Liêm, TP. Hà Nội.
+            
+            <b>Giờ làm việc: 08h30 đến 17h30 (Thứ 2 đến thứ 7)</b>
+            
+            <b>Điện thoại + Zalo: 088.660.7526</b>
+            
+            [Website]:<b><a href="/index.html">hoanghabook.com</a></b>
+            
+            [Email]:              <b>hoangha@book.com</b>
+            
+            [FanPage]:<b><a href="https://www.facebook.com/hn.hoangha">hoanghabook</a></b>
+            
+            <b>BẢN ĐỒ ĐƯỜNG ĐI</b>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.3759406761546!2d105.77970664466933!3d21.01763854439659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454ab30540137%3A0x35ac90387f094f93!2zVMOyYSBuaMOgIFPDtG5nIMSQw6A!5e0!3m2!1svi!2s!4v1671436590637!5m2!1svi!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </pre>
         </div>
     </main>
     <footer>
@@ -105,7 +108,6 @@
         </div>
     </footer>
 </body>
-<script src="./js/index.js"></script>
-<script src="./js/slideShow.js"></script>
+<script src="/js/cart.js"></script>
 
 </html>

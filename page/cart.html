@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,6 +14,31 @@
     <script src="https://kit.fontawesome.com/3b79043855.js" crossorigin="anonymous"></script>
     <title>Web Sell</title>
 </head>
+<style>
+    table, th, td{
+        border: 1px solid black;
+        border-collapse: collapse; 
+    }
+    table{
+        width: 100%;       
+    }
+    .table {
+        margin-top: 120px;
+        padding: 20px;
+    }
+    .table td, th {
+        text-align: center;
+        padding: 10px;   
+    }
+    .table img {
+        width: 80px;
+    }
+    input{
+        margin: 0 auto;
+        width: 50px;
+        text-align: center;
+    }
+</style>
 
 <body>
     <header class="header">
@@ -29,46 +54,36 @@
                 <li><a href="/page/contact.html">LIÊN HỆ</a></li>
             </ul>
             <ul class="navbar_features">
-                <li><a href="/page/cart.html" onclick="viewCart()" id="cart"><i
-                            class="fa-solid fa-cart-shopping"></i></a></li>
-                <li><a href="/page/favorite.html" onclick="viewFavorite()" id="favorite"><i
-                            class="fa-solid fa-heart"></i></a></li>
-                <li><a href="/page/login.html" id="loginLogout">Đăng nhập・Đăng ký</a></li>
-                <div class="dropdown">
-                    <i class="fa-solid fa-user" id="dropbtn"></i>
-                    <div class="dropdown_content">
-
-                        <a href="#" onclick="logOut()">Đăng xuất</a>
-                        <a href="/page/changePassUser.html">Đổi mật khẩu</a>
-                    </div>
-                </div>
+                <li><a href="/page/cart.html" onclick="payCart()" id="cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="/page/favorite.html" onclick="viewFavorite()" id="favorite"><i class="fa-solid fa-heart"></i></a></li>
+                <li><a href="/page/login.html"><i class="fa-solid fa-user"></i></a></li>
             </ul>
-            <div id="menu_sort" onclick="showMenuSort()"><i class="fa-solid fa-bars"></i></div>
         </nav>
     </header>
     <main class="row">
-        <div class="container">
-            <div class="slide_show">
-                <div class="search_bar">
-                    <input type="text" id="search" placeholder="&#128270 Tìm kiếm sản phẩm tại đây &#128269">
-                    <button onclick="searchProduct()">Search</button>
-                </div>
-                <img id="slider" src="./img/slide-show-1.png" alt="">
-                <a class="next" onclick="next()">❯</a>
-                <a class="prev" onclick="prev()">❮</a>
-            </div>
-        </div>
-        <h2 class="title" id="title">Sách tiếng Nhật</h2>
         <div class="product_container">
-            <div class="product_item" id="showProduct">
-                <!-- <div class="product">
-                    <img id="product_image" src="" alt="hình ảnh sp">
-                    <h3 id="product_name">Minna no nihongo I</h3>
-                    <p id="product_price">300.000 <span>đ</span></p>
-                    <i onclick="addToCart()" class="fa-solid fa-cart-arrow-down"></i>
-                    <i onclick="addToFavorite()" class="fa-solid fa-heart-circle-plus"></i>
-                </div> -->
-            </div>
+            <div class="product_item" id="showProduct"></div>
+        </div>
+        <div class="table">
+            <h2>Giỏ hàng của bạn</h2><br>
+            <table>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Tên</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Remove</th>
+                    <th>Total Amount</th>
+                </tr>
+                <tbody id="money">
+
+                </tbody>
+                <tr>
+                    <td colspan="5">Tổng</td>
+                    <td id="total-money"></td>
+                </tr>
+            </table>
+
         </div>
     </main>
     <footer>
@@ -105,7 +120,6 @@
         </div>
     </footer>
 </body>
-<script src="./js/index.js"></script>
-<script src="./js/slideShow.js"></script>
+<script src="/js/cart.js"></script>
 
 </html>

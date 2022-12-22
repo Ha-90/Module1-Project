@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Poppins:ital,wght@0,300;0,600;0,700;0,800;0,900;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3b79043855.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Web Sell</title>
+</head>
+<style>
+    .shopping_guide h2,
+    .shopping_guide h3,
+    .shopping_guide a {
+        padding-left: 45px;
+        color: green;
+    }
+
+    .shopping_guide pre {
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+    }
+</style>
+
+<body>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="/index.html" class="navbar_logo">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <span class="navbar_logo_text">hoanghabook</span>
+            </a>
+            <ul class="navbar_menu">
+                <li><a href="/index.html">SÁCH TIẾNG NHẬT</a></li>
+                <li><a href="/page/introduce.html">GIỚI THIỆU</a></li>
+                <li><a href="/page/shoppingGuide.html">HƯỚNG DẪN MUA HÀNG</a></li>
+                <li><a href="/page/contact.html">LIÊN HỆ</a></li>
+            </ul>
+            <i class="fa-solid fa-bars"></i>
+            <ul class="navbar_features">
+                <li><a href="/page/cart.html" onclick="viewCart()" id="cart"><iclass="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="/page/favorite.html" onclick="viewFavorite()" id="favorite"><i class="fa-solid fa-heart"></i></a></li>
+                <li><a href="/page/login.html"><i class="fa-solid fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="row">
+        <div class="product_container">
+            <div class="product_item" id="showProduct"></div>
+        </div>
+        <div class="shopping_guide">
+            <h2>GIỚI THIỆU</h2>
+            <pre>
+
+            <i class="fa-solid fa-book-open-reader"></i><span class="navbar_logo_text">  hoanghabook</span>
+            
+            <b style="color: green;">hoanghabook</b> – chuyên tư vấn và cung cấp các đầu sách tiếng Nhật, giáo trình tiếng Nhật, tài
+            liệu tiếng Nhật bổ ích cho các bạn học giả có niềm đam mê học hỏi tiếng Nhật.
+            
+            <b>Sứ mệnh:</b> phổ biến, nâng cao trình độ tiếng Nhật bằng việc cung cấp các giáo trình tiếng Nhật từ sơ cấp đến cao cấp cho
+            các học viên học tiếng Nhật tại Việt Nam.
+            
+            <b>Tầm nhìn:</b> Cửa hàng hoanghabook liên tục phấn đấu để trở thành nhà sách chuyên cung cấp giáo trình tiếng Nhật đầy đủ, uy tín
+            và có chất lượng phục vụ tốt nhất Việt Nam trong vòng 3 năm tới.
+            
+            <b>Giá trị cốt lõi:</b> hoạt động trong lĩnh vực dịch vụ giáo dục, chúng tôi ý thức được vai trò quan trọng và sự ảnh hưởng của
+            nội dung và chất lượng các đầu sách. Vì vậy chúng tôi luôn phát triển đội ngũ nhân viên có chuyên môn cao về tiếng Nhật,
+            chúng tôi luôn tìm kiếm để đưa ra những đầu sách hay, có nội dung chất lượng nhất, giúp người học nhanh chóng đạt được
+            các mục tiêu học tập đã đề ra. Các tiêu chí sau đây luôn được chúng tôi gìn giữ và phát triển:
+            
+            <b><i>- Uy tín và chất lượng phục vụ:</i></b> đến với Cửa hàng Tri Ân, các bạn sẽ nhận được sự tư vấn tận tình của đội ngũ nhân viên,
+            luôn hỗ trợ và đưa ra các đầu sách phù hợp với trình độ của từng học viên.
+            
+            <b><i>- Cung cấp giải pháp trọn gói cho người học:</i></b> dù bạn là người mới bắt đầu học tiếng Nhật hay là giáo viên dạy tiếng Nhật,
+            chúng tôi luôn có sẵn những đầu sách phù hợp nhất với bạn!
+
+            <b><i>- Giá cả phù hợp:</i></b> giá cả theo đúng giá của Nhà Xuất Bản và nhận được nhiều khuyến mãi (theo chương trình riêng).
+
+            <b><i>- Giao hàng đúng tiến độ:</i></b> chúng tôi sử dụng dịch vụ giao hàng của các đối tác chuyên nghiệp, có uy tín lâu năm trong lĩnh
+            vực vận chuyển và giao nhận. Đối tác của chúng tôi không ngừng đổi mới và nâng cấp hệ thống giao hàng để ngày càng phục
+            vụ tận tình hơn.
+
+            Hãy đến với Cửa hàng hoanghabook để chọn được những giáo trình tiếng Nhật phù hợp nhất!
+            </pre>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_container">
+            <div class="col-3">
+                <h4>LIÊN HỆ VỚI CHÚNG TÔI</h4><br>
+                <p>Hotline: 0886607526</p>
+                <p>Email: hoangha@book.vn</p>
+                <p>Địa chỉ: Tầng 7, tháp B, tòa nhà Sông Đà</p>
+                <img src="/img/dangkybocongthuong.png" alt="">
+            </div>
+            <div class="col-3">
+                <h4>VỀ CHÚNG TÔI</h4><br>
+                <p>Giới thiệu về nhà sách</p>
+                <p>Hệ thống nhà sách</p>
+                <p>Chính sách bảo mật</p>
+                <p>Chính sách bán hàng</p>
+            </div>
+            <div class="col-3">
+                <h4>TÀI KHOẢN CỦA TÔI</h4><br>
+                <p>Đăng nhập</p>
+                <p>Tạo tài khoản</p>
+                <p>Danh sách so sánh</p>
+            </div>
+            <div class="col-3">
+                <h4>HỖ TRỢ KHÁCH HÀNG</h4><br>
+                <p>Câu hỏi thường gặp</p>
+                <p>Chính sách đổi trả</p>
+                <p>Quy định chung</p>
+            </div>
+            <div class="col-12">
+                <p>Copyright 2022 - Designed by <b>hoanghabook</b></p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="/js/cart.js"></script>
+
+</html>
