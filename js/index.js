@@ -3,66 +3,74 @@
 //     image: "/img/minna 1 ban cu.png",
 //     name: "Minna 1 bản cũ",
 //     price: "537000",
-//     detail: "",
-//     id: 1,
+//     detail: "Bộ sách bao gồm 8 cuốn sau: Honsatsu; Bản dịch và giải thích ngữ pháp; Sách bài tập; Luyện mẫu câu; Hán tự học; Hán tự bài tập; 25 bài luyện đọc; 25 bài luyện nghe",
+//     code: "MN1C",
 //   },
 //   {
 //     image: "/img/Minna 1 ban moi.png",
 //     name: "Minna 1 bản mới",
 //     price: "535000",
-//     id: 2,
+//     detail: "Sách giáo khoa; Bản dịch và giải thích ngữ pháp; Bài tập ngữ pháp; Bunkei renshuuchou; 25 Topiku; 25 Tasuku; Kanji học; Kanji renshuuchou;",
+//     code: "MN1M",
 //   },
 //   {
 //     image: "/img/minna 2 ban cu.png",
 //     name: "Minna 2 bản cũ",
 //     price: "521000",
-//     id: 3,
+//     detail: "Bộ sách bao gồm 8 cuốn sau: Honsatsu; Bản dịch và giải thích ngữ pháp; Sách bài tập; Luyện mẫu câu; Hán tự học; Hán tự bài tập; 25 bài luyện đọc; 25 bài luyện nghe	",
+//     code: "MN2C",
 //   },
 //   {
 //     image: "/img/Minna 2 ban moi.png",
 //     name: "Minna 2 bản mới",
 //     price: "557000",
-//     id: 4,
+//     detail: "Bộ sách bao gồm 8 cuốn sau: Honsatsu; Bản dịch và giải thích ngữ pháp; Sách bài tập; Luyện mẫu câu; Hán tự học; Hán tự bài tập; 25 bài luyện đọc; 25 bài luyện nghe",
+//     code: "MN2M",
 //   },
 //   {
 //     image: "/img/minna trung cap 1.png",
 //     name: "Minna trung cấp 1",
 //     price: "247000",
-//     id: 5,
+//     detail: "Bộ sách gồm 4 quyển: Honsatsu; Bản dịch và giải thích ngữ pháp; Bài tập ngữ pháp; Bài tập từ vựng",
+//     code: "MTC1",
 //   },
 //   {
 //     image: "/img/minna trung cap 2.png",
 //     name: "Minna trung cấp 2",
 //     price: "247000",
-//     id: 6,
+//     detail: "Bộ sách gồm 4 quyển: Honsatsu; Bản dịch và giải thích ngữ pháp; Bài tập ngữ pháp; Bài tập từ vựng",
+//     code: "MTC2",
 //   },
 //   {
 //     image: "/img/minna trung cap n3 n2.png",
-//     name: "Minna trung cấp n3",
+//     name: "Minna trung cấp n3 n2",
 //     price: "494000",
-//     id: 7,
+//     detail: "Honsatsu; Bản dịch và giải thích ngữ pháp; Sách bài tập; Luyện mẫu câu; Hán tự học; Hán tự bài tập; luyện đọc; luyện nghe",
+//     code: "MTCN3",
 //   },
 //   {
 //     image: "/img/hyojun mondaishu 1.png",
 //     name: "Hyojun mondai 1",
 //     price: "46000",
-//     id: 8,
+//     detail: "みんなの日本語 初級I 第2版 標準問題集 là cuốn sách bài tập nhằm hỗ trợ cho việc học đạt hiệu quả tốt nhất.	",
+//     code: "HJM1",
 //   },
 //   {
 //     image: "/img/minna 1 ngu phap tv.png",
 //     name: "Minna 1 ngữ pháp",
 //     price: "81000",
-//     id: 9,
+//     detail: "みんなの日本語初級I 第2版 翻訳・文法解説ベトナム語版 là bản dịch sang tiếng Việt của quyển sách chính",
+//     code: "M1NP",
 //   },
 //   {
 //     image: "/img/minna so cap 1.png",
 //     name: "Minna 1 honsatsu",
 //     price: "94000",
-//     id: 10,
+//     detail: "みんなの日本語 初級I 第2版 本冊 là quyển sách chính, quan trọng nhất – được xem như là sách giáo khoa trong bộ sách Minnano nihongo",
+//     code: "M1HS",
 //   },
 // ];
 // localStorage.setItem("listProduct", JSON.stringify(listProduct));
-
 
 // Vẽ giao diện list sp
 let listProduct = JSON.parse(localStorage.getItem("listProduct"));
@@ -202,8 +210,15 @@ function addToFavorite(id) {
   }
 }
 // function Tìm kiếm sp trên ô input
+let search = document.getElementById("search");
+search.addEventListener("keypress", function (e) {
+  if (e.key == "Enter") {
+    searchProduct();
+  }
+});
 function searchProduct() {
   let search = document.getElementById("search");
+  let slide_container = document.getElementById("slide_container");
   let listRender = [];
   for (let i = 0; i < listProduct.length; i++) {
     if (
@@ -215,6 +230,7 @@ function searchProduct() {
       console.log(listRender);
     }
   }
+  slide_container.style.display = "none";
   drawListProduct(listRender);
 }
 
@@ -223,7 +239,7 @@ function logOut() {
   let listUser = JSON.parse(localStorage.getItem("listUser"));
   for (i = 0; i < listUser.length; i++) {
     if (listUser[i].status) {
-      listUser[i].status = false;     
+      listUser[i].status = false;
       alert("Goodbye!");
       localStorage.setItem("listUser", JSON.stringify(listUser));
       hideShowUser();
@@ -233,28 +249,45 @@ function logOut() {
 
 // Ẩn hiện Đăng nhập/Đăng ký & icon user
 function hideShowUser() {
-
   let loginLogout = document.getElementById("loginLogout");
   let dropbtn = document.getElementById("dropbtn");
   let listUser = JSON.parse(localStorage.getItem("listUser"));
-  let flag=false;
+  let flag = false;
   for (i = 0; i < listUser.length; i++) {
     if (listUser[i].status) {
-      flag=true;
+      flag = true;
       break;
-    } 
+    }
   }
-  if(flag){
+  if (flag) {
     loginLogout.style.display = "none";
     dropbtn.style.display = "inline-block";
-  }else{
+  } else {
     loginLogout.style.display = "inline-block";
     dropbtn.style.display = "none";
   }
 }
 hideShowUser();
 
-// Show menu_sort thu nhỏ khi reponsive < 768px
+// Click Show menu_sort thu nhỏ khi reponsive < 768px
 function showMenuSort() {
-  console.log("1111111111111");
+  document.getElementById("rwd_dropbtn").classList.toggle("show");
+}
+
+function payCart(e) {
+  let logged = checkStatus(); // Check trạng thái đang logged mới cho xem Cart
+  if (logged) {
+    window.location.href = "/page/cart.html";
+  } else {
+    e.preventDefault();
+  }
+}
+
+function viewFavorite(e) {
+  let logged = checkStatus(); // Check trạng thái đang logged mới cho xem Favorite
+  if (logged) {
+    window.location.href = "/page/favorite.html";
+  } else {
+    e.preventDefault();
+  }
 }

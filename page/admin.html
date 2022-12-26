@@ -8,9 +8,15 @@
     <title>Document</title>
 </head>
 <style>
+    body {
+        background-color: rgb(79, 79, 121);
+        color: white;
+
+    }
+
     .container {
         display: flex;
-        gap: 100px;
+        gap: 20px;
     }
 
     .label {
@@ -20,63 +26,124 @@
     table,
     th,
     td {
-        border: 1px solid black;
+        border: 1px solid rgb(196, 250, 0);
         border-collapse: collapse;
     }
 
     table {
         margin-top: 30px;
-        min-width: 800px;
+        width: 1000px;
         text-align: center;
+        float: right;
     }
 
     td img {
-        width: 15%;
+        width: 40px;
+    }
+
+    button {
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .manage_title {
+        font-size: 20px;
+        font-weight: bold;
+        color: yellow;
+    }
+
+    #container_viewProduct,
+    #container_viewUser {
+        display: none;
+    }
+
+    #container_viewUser {
+        margin-bottom: 20px;
     }
 </style>
 
 <body>
     <div class="container">
-        <div class="container_addProduct">
-            <form action="">
-                <div style="font-size: 20px; font-weight: bold;">Thêm sản phẩm</div>
-                <div class="label">Image:</div>
-                <input id="input_image" type="text"><br>
-                <div class="label">Name:</div>
-                <input id="input_name" type="text"><br>
-                <div class="label">Price:</div>
-                <input id="input_price" type="text"><br>
-                <div class="label">Detail:</div>
-                <input id="input_detail" type="text"><br>
-                <div class="label">Code:</div>
-                <input id="input_code" type="text"><br><br>
-                <button id="saveBtn" onclick="saveList()">Save</button>
-            </form>
-        </div>
-        <div class="container_viewProduct">
-            <div style="font-size: 20px; font-weight: bold;">Thông tin sản phẩm</div>
-            <table>
-                <tr>
-                    <th>STT</th>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Detail</th>
-                    <th>Code</th>
-                    <th colspan="2">Actions</th>
-                </tr>
-                <tbody id="showProduct">
+        <nav class="nav_left">
+            <div class="container_addProduct">
+                <div>Page quản lý của Admin</div><br>
+                <button><a href="/index.html" onclick=" logOut()">Đăng xuất</a></button>
+                <button><a href="/page/changePassUser.html">Đổi pass</a></button><br><br>
+
+                <div class="manage_title">Thông tin sản phẩm</div>
+                <button onclick="showProductInfo()">Show</button>
+                <br><br>
+                <div class="manage_title">Thông tin User
+                    <br><button onclick="showUserInfo()">Show</button>
+                </div>
+            </div>
+
+        </nav>
+        <div class="showInfo">
+            <div id="container_viewUser">
+                <table>
                     <tr>
+                        <th>STT</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                    </tr>
+                    <tbody id="showUser">
+                        <!-- <tr>
+                            <td>stt</td>
+                            <td>email</td>
+                            <td>pass</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="container_viewProduct">
+                <table>
+                    <tr>
+                        <th>STT</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Detail</th>
+                        <th>Code</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                    <tbody id="showProduct">
                         <!-- <td>STT</td>
-                        <td>Image</td>
-                        <td>Name</td>
-                        <td>Price</td>
-                        <td>Detail</td>
-                        <td>Id</td> -->
-                </tbody>
-                </tr>
-            </table>
+                                    <td>Image</td>
+                                    <td>Name</td>
+                                    <td>Price</td>
+                                    <td>Detail</td>
+                                    <td>Id</td> -->
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <form action="">
+                    <div class="manage_title">Thêm sản phẩm</div>
+                    <div class="label">Image:</div>
+                    <input id="input_image" type="text"><br>
+                    <div class="label">Name:</div>
+                    <input id="input_name" type="text"><br>
+                    <div class="label">Price:</div>
+                    <input id="input_price" type="text"><br>
+                    <div class="label">Detail:</div>
+                    <input id="input_detail" type="text"><br>
+                    <div class="label">Code:</div>
+                    <input id="input_code" type="text"><br><br>
+                    <button id="saveBtn" onclick="saveList(event)">Save</button>
+                </form><br>
+            </div>
         </div>
+
+
     </div>
 </body>
 <script src="/js/admin.js"></script>

@@ -24,9 +24,8 @@ function viewFavorite() {
     document.getElementById("showProduct").innerHTML = data;
   }
 }
-
 viewFavorite();
-}
+
 
 // Remove sp khỏi Favorite
 function removeFavorite(id) {

@@ -25,10 +25,12 @@
       let firstPass = document.fR.password.value;
       let secondPass = document.fR.password2.value;
       let email = document.fR.email.value;
+      let answer = document.getElementById("answerSQ").value;
 
       let obj = {
         email: email,
         password: firstPass,
+        answer: answer,
         status: false
       };
       let flag = false;
@@ -66,6 +68,11 @@
         return false;
       } else {
         document.getElementById("notification").innerHTML = "";
+      // check câu hỏi bảo mật có bị bỏ trống hay k
+      if(answer == null || answer == ""){
+        document.getElementById("message_answer").innerHTML = "Không được bỏ trống câu trả lời";
+        return false;
+      }
 
       // check storage có data bên trong hay k
       let listUser = localStorage.getItem("listUser");
@@ -116,4 +123,14 @@
       const type2 = password2.getAttribute("type") === "password" ? "text" : "password";
       password2.setAttribute("type", type2);
       this.classList.toggle("bi-eye");
+    });
+
+// Mắt answer của security question
+    const toggleAnswer = document.querySelector("#toggleAnswer");
+    const answerSQ = document.querySelector("#answerSQ");
+
+    toggleAnswer.addEventListener("click", function () {
+        const type = answerSQ.getAttribute("type") === "password" ? "text" : "password";
+        answerSQ.setAttribute("type", type);
+        this.classList.toggle("bi-eye");
     });

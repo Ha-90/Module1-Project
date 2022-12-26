@@ -1,8 +1,6 @@
 
 // Hiển thị thông tin sp và số tiền trong giỏ hàng Cart
 function payCart() {
-  let logged = checkStatus(); // Check trạng thái đang logged mới cho add to Cart
-  if (logged) {
   let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
   let data = "";
   for (i = 0; i < listProductCart.length; i++) {
@@ -18,7 +16,6 @@ function payCart() {
             </tr>`;
   }
   document.getElementById("money").innerHTML = data;
-}
 }
 payCart();
 

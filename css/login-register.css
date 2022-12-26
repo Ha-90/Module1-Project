@@ -4,11 +4,11 @@ body {
 }
 fieldset {
     left: 50%;
-    top: 50px;
+    top: 0px;
     position: relative;
     transform: translate(-50%);
     width: 320px;
-    height: 475px;
+    min-height: 475px;
     font-size: 20px;
     background-color: rgb(238, 224, 155);
     border-radius: 5px;
@@ -42,14 +42,14 @@ button:hover {
     background-color: rgb(76, 213, 76);
 }
 
-#togglePassword, #togglePassword2, #togglePassword0 {
+#togglePassword, #togglePassword2, #togglePassword0, #toggleAnswer {
     cursor: pointer;
     position: absolute;
     right: 30px;
 }
 
 #message_email,
-#notification, #guide {
+#notification, #guide, #message_answer {
   font-style: italic;
   font-size: 15px;
 }

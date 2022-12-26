@@ -3,7 +3,7 @@ function changePasswordUser(e) {
   e.preventDefault();
 
   let email = document.fR.email.value;
-  let password = document.fR.password.value;
+  let answer = document.getElementById("answerSQ").value;
   let password2 = document.fR.password2.value;
 
   let flag = false;
@@ -12,16 +12,16 @@ function changePasswordUser(e) {
 
   // check password có đủ tối thiểu 8 ký tự hay k
   if (password2.length < 8) {
-    document.getElementById("message_password2").innerHTML = "Password tối thiểu 8 ký tự";
+    document.getElementById("message_password2").innerHTML =
+      "Password tối thiểu 8 ký tự";
     return false;
   }
 
-  // xet email và password trong storage có trùng với ô nhập hay k
+  // xet email và câu trả lời trong storage có trùng với ô nhập hay k
   for (let i = 0; i < listUser.length; i++) {
-    if (listUser[i].email == email && listUser[i].password == password) {
+    if (listUser[i].email == email && listUser[i].answer == answer) {
       if (listUser[i].password != password2 && password2.length >= 8) {
         listUser[i].password = password2;
-        listUser[i].status = false;
         localStorage.setItem("listUser", JSON.stringify(listUser));
         alert("Đổi mật khẩu thành công!");
         location.href = "/page/login.html";
@@ -33,22 +33,20 @@ function changePasswordUser(e) {
     }
   }
   if (flag == false) {
-    alert("Email hoặc Password không hợp lệ.");
+    alert("Email/password hoặc câu trả lời không hợp lệ.");
     return false;
   }
 }
 
+// Mắt answer của security question
+    const toggleAnswer = document.querySelector("#toggleAnswer");
+    const answerSQ = document.querySelector("#answerSQ");
 
-// Con mắt soi password
-const togglePassword = document.querySelector("#togglePassword");
-const password = document.querySelector("#password");
-
-togglePassword.addEventListener("click", function () {
-  const type =
-    password.getAttribute("type") === "password" ? "text" : "password";
-  password.setAttribute("type", type);
-  this.classList.toggle("bi-eye");
-});
+    toggleAnswer.addEventListener("click", function () {
+        const type = answerSQ.getAttribute("type") === "password" ? "text" : "password";
+        answerSQ.setAttribute("type", type);
+        this.classList.toggle("bi-eye");
+    });
 
 // Con mắt soi password2
 const togglePassword2 = document.querySelector("#togglePassword2");

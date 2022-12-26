@@ -25,6 +25,18 @@
             <input type="password" name="password2" id="password2" required>
             <i class="bi bi-eye-slash" id="togglePassword2"></i>
             <p id="notification"></p>
+
+            <label for="">Security question:</label>
+                <select name="" id="">
+                    <option value="">---Chọn 1 câu hỏi bảo mật---</option>
+                    <option value="">Tên con vật bạn yêu thích là gì?</option>
+                    <option value="">Tên Giáo viên mà bạn nhớ nhất?</option>
+                    <option value="">Quyển sách hay nhất bạn từng đọc là gì?</option>
+                </select>
+                <input type="password" id="answerSQ" placeholder="answer" required>
+                <i class="bi bi-eye-slash" id="toggleAnswer"></i>
+                <p id="message_answer"></p>
+            <br>
            
             <button id="btnRegister" onclick="return checkPass(event)">Register</button>
             
