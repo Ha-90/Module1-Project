@@ -15,15 +15,18 @@ function drawListProduct() {
             <td>${listProduct[i].price}</td>
             <td>${listProduct[i].detail}</td>
             <td>${listProduct[i].code}</td>
-            <td><button id="edit" onclick="edit(${listProduct[i].id})">EDIT</button></td>
-            <td><button id="del" onclick="del(${listProduct[i].id})">DELETE</button></td>
+            <td><button id="edit" onclick="edit(${
+              listProduct[i].id
+            })">EDIT</button></td>
+            <td><button id="del" onclick="del(${
+              listProduct[i].id
+            })">DELETE</button></td>
             </tr>
             `;
   }
   document.getElementById("showProduct").innerHTML = data;
 }
 drawListProduct();
-
 
 // Tạo mảng chứa thông tin sp và lưu storage
 
@@ -44,7 +47,7 @@ function saveList(e) {
     listDataProduct[keyId].detail = input_detail.value;
     listDataProduct[keyId].code = input_code.value;
 
-    listDataProduct.splice(keyId,1,listDataProduct[keyId]);
+    listDataProduct.splice(keyId, 1, listDataProduct[keyId]);
     console.log("1111", listDataProduct);
     localStorage.setItem("listProduct", JSON.stringify(listDataProduct));
     document.getElementById("saveBtn").innerHTML = "Save";
@@ -55,7 +58,6 @@ function saveList(e) {
     input_detail.value = "";
     input_code.value = "";
 
- 
     localStorage.removeItem("keyId");
     drawListProduct();
 
@@ -136,9 +138,8 @@ function edit(id) {
       input_detail.value = listProduct[i].detail;
       input_code.value = listProduct[i].code;
       document.getElementById("saveBtn").innerHTML = "EDIT";
-       localStorage.setItem("keyId", JSON.stringify(i));
+      localStorage.setItem("keyId", JSON.stringify(i));
     }
-   
   }
 }
 
@@ -178,17 +179,17 @@ function hideShowUser() {
 hideShowUser();
 
 // Show thông tin sản phẩm
-function showProductInfo(){
+function showProductInfo() {
   let container_viewProduct = document.getElementById("container_viewProduct");
   container_viewProduct.style.display = "block";
 }
 
 // Show các tài khoản đã đăng ký
-function showUserInfo(){
+function showUserInfo() {
   let container_viewUser = document.getElementById("container_viewUser");
   let listUser = JSON.parse(localStorage.getItem("listUser"));
   let data = "";
-  for(i = 0; i < listUser.length; i++){
+  for (i = 0; i < listUser.length; i++) {
     data += `
             <tr>
             <td>${i + 1}</td>
@@ -196,9 +197,9 @@ function showUserInfo(){
             <td>${listUser[i].password}</td>
             </tr>
           `;
-    // document.getElementById("showUser").innerHTML += ++count + ". " + listUser[i].email + "; " + listUser[i].password + "<br>";
   }
   container_viewUser.style.display = "block";
   document.getElementById("showUser").innerHTML = data;
 }
 showProductInfo();
+

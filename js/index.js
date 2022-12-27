@@ -5,6 +5,7 @@
 //     price: "537000",
 //     detail: "Bộ sách bao gồm 8 cuốn sau: Honsatsu; Bản dịch và giải thích ngữ pháp; Sách bài tập; Luyện mẫu câu; Hán tự học; Hán tự bài tập; 25 bài luyện đọc; 25 bài luyện nghe",
 //     code: "MN1C",
+//     id: 0
 //   },
 //   {
 //     image: "/img/Minna 1 ban moi.png",
@@ -12,6 +13,7 @@
 //     price: "535000",
 //     detail: "Sách giáo khoa; Bản dịch và giải thích ngữ pháp; Bài tập ngữ pháp; Bunkei renshuuchou; 25 Topiku; 25 Tasuku; Kanji học; Kanji renshuuchou;",
 //     code: "MN1M",
+//     id: 1
 //   },
 //   {
 //     image: "/img/minna 2 ban cu.png",
@@ -19,6 +21,7 @@
 //     price: "521000",
 //     detail: "Bộ sách bao gồm 8 cuốn sau: Honsatsu; Bản dịch và giải thích ngữ pháp; Sách bài tập; Luyện mẫu câu; Hán tự học; Hán tự bài tập; 25 bài luyện đọc; 25 bài luyện nghe	",
 //     code: "MN2C",
+//     id: 2
 //   },
 //   {
 //     image: "/img/Minna 2 ban moi.png",
@@ -26,6 +29,7 @@
 //     price: "557000",
 //     detail: "Bộ sách bao gồm 8 cuốn sau: Honsatsu; Bản dịch và giải thích ngữ pháp; Sách bài tập; Luyện mẫu câu; Hán tự học; Hán tự bài tập; 25 bài luyện đọc; 25 bài luyện nghe",
 //     code: "MN2M",
+//     id: 3
 //   },
 //   {
 //     image: "/img/minna trung cap 1.png",
@@ -33,6 +37,7 @@
 //     price: "247000",
 //     detail: "Bộ sách gồm 4 quyển: Honsatsu; Bản dịch và giải thích ngữ pháp; Bài tập ngữ pháp; Bài tập từ vựng",
 //     code: "MTC1",
+//     id: 4
 //   },
 //   {
 //     image: "/img/minna trung cap 2.png",
@@ -40,6 +45,7 @@
 //     price: "247000",
 //     detail: "Bộ sách gồm 4 quyển: Honsatsu; Bản dịch và giải thích ngữ pháp; Bài tập ngữ pháp; Bài tập từ vựng",
 //     code: "MTC2",
+//     id: 5
 //   },
 //   {
 //     image: "/img/minna trung cap n3 n2.png",
@@ -47,6 +53,7 @@
 //     price: "494000",
 //     detail: "Honsatsu; Bản dịch và giải thích ngữ pháp; Sách bài tập; Luyện mẫu câu; Hán tự học; Hán tự bài tập; luyện đọc; luyện nghe",
 //     code: "MTCN3",
+//     id: 6
 //   },
 //   {
 //     image: "/img/hyojun mondaishu 1.png",
@@ -54,6 +61,7 @@
 //     price: "46000",
 //     detail: "みんなの日本語 初級I 第2版 標準問題集 là cuốn sách bài tập nhằm hỗ trợ cho việc học đạt hiệu quả tốt nhất.	",
 //     code: "HJM1",
+//     id: 7
 //   },
 //   {
 //     image: "/img/minna 1 ngu phap tv.png",
@@ -61,6 +69,7 @@
 //     price: "81000",
 //     detail: "みんなの日本語初級I 第2版 翻訳・文法解説ベトナム語版 là bản dịch sang tiếng Việt của quyển sách chính",
 //     code: "M1NP",
+//     id: 8
 //   },
 //   {
 //     image: "/img/minna so cap 1.png",
@@ -68,6 +77,7 @@
 //     price: "94000",
 //     detail: "みんなの日本語 初級I 第2版 本冊 là quyển sách chính, quan trọng nhất – được xem như là sách giáo khoa trong bộ sách Minnano nihongo",
 //     code: "M1HS",
+//     id: 9
 //   },
 // ];
 // localStorage.setItem("listProduct", JSON.stringify(listProduct));
@@ -79,7 +89,8 @@ function drawListProduct(listProduct) {
   for (let i = 0; i < listProduct.length; i++) {
     data += `
                 <div class="product">
-                    <img id="product_image" src="${listProduct[i].image}" alt="hình ảnh sp">
+                    <img id="product_image" onclick="viewDetailProduct(${i})" src="${listProduct[i].image}" alt="hình ảnh sp">
+                    
                     <h4 id="product_name">${listProduct[i].name}</h4>
                     <p id="product_price">${listProduct[i].price}<span> đ</span></p>
                     <i onclick="addToCart(${listProduct[i].id})" class="fa-solid fa-cart-arrow-down"></i>
@@ -116,26 +127,27 @@ function addToCart(id) {
   let logged = checkStatus(); // Check trạng thái đang logged mới cho add to Cart
   if (logged) {
     alert("Đã thêm sản phẩm vào giỏ hàng");
-    // let listProduct = JSON.parse(localStorage.getItem("listProduct"));
-
+    
     let listProductCart = localStorage.getItem("listProductCart");
-
+    
     if (listProductCart == null) {
       listProductCart = [];
       for (let i = 0; i < listProduct.length; i++) {
         if (listProduct[i].id == id) {
           listProductCart.push(listProduct[i]);
           listProductCart[listProductCart.length - 1].quantity = 1;
+          
           localStorage.setItem(
             "listProductCart",
             JSON.stringify(listProductCart)
-          );
-          break;
+            );
+            // console.log(listProductCart);
+            break;
+          }
         }
-      }
-    } else {
-      let listProductAddCart = JSON.parse(listProductCart);
+      } else {
 
+      let listProductAddCart = JSON.parse(listProductCart);
       for (let i = 0; i < listProduct.length; i++) {
         flag = false;
         position = 0;
@@ -150,7 +162,7 @@ function addToCart(id) {
             }
           }
 
-          if (flag == true) {
+          if (flag) {
             console.log("SP đã có trong giỏ hàng");
             console.log(position);
             listProductAddCart[position].quantity += 1;
@@ -166,6 +178,7 @@ function addToCart(id) {
       }
     }
   }
+ 
 }
 
 // thêm sp vào Favorite
@@ -290,4 +303,10 @@ function viewFavorite(e) {
   } else {
     e.preventDefault();
   }
+}
+
+// View chi tiết sp khi click
+function viewDetailProduct(id) {
+  localStorage.setItem("keyDetail",id);
+  window.location.href="/page/detailProduct.html";
 }

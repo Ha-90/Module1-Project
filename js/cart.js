@@ -62,3 +62,29 @@ function changeQuantity(i) {
   payCart();
   totalMoney();
 }
+
+// Xác nhận đặt hàng
+function orderConfirm(e){
+  e.preventDefault();
+  let phonenumber = document.getElementById("phonenumber");
+  let address = document.getElementById("address");
+  let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
+
+  if(phonenumber.value != "" && address.value != ""){
+    let customerInfo = [{
+      phonenumber: phonenumber.value,
+      address: address.value,
+    }];
+    customerInfo.push(listProductCart)
+    localStorage.setItem("customerInfo", JSON.stringify(customerInfo));
+    console.log(customerInfo);
+    alert("Chúng tôi đã tiếp nhận đơn hàng. Xin cảm ơn!")
+    phonenumber.value = "";
+    address.value = "";
+  }
+  else {
+    alert("Vui lòng nhập đầy đủ thông tin")
+    return
+  }
+
+}

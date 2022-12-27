@@ -1,0 +1,31 @@
+table, th, td{
+        border: 1px solid black;
+        border-collapse: collapse; 
+    }
+    table{
+        width: 100%;       
+    }
+    .table {
+        margin-top: 120px;
+        padding: 20px;
+    }
+    .table td, th {
+        text-align: center;
+        padding: 10px;   
+    }
+    .table img {
+        width: 80px;
+    }
+    input{
+        margin: 0 auto;
+        width: 50px;
+        text-align: center;
+    }
+    .customer_info{
+        width: 400px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .customer_info input{
+        width: 100%;
+    }

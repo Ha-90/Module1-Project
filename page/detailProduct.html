@@ -12,11 +12,15 @@
         href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Poppins:ital,wght@0,300;0,600;0,700;0,800;0,900;1,400;1,500&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/3b79043855.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Web Sell</title>
-    <link rel="stylesheet" href="/css/cart.css">
 </head>
 <style>
-    
+.product_container img{
+    margin-top: 100px;
+}
 </style>
 
 <body>
@@ -32,7 +36,7 @@
                 <li><a href="/page/shoppingGuide.html">HƯỚNG DẪN MUA HÀNG</a></li>
                 <li><a href="/page/contact.html">LIÊN HỆ</a></li>
             </ul>
-            
+
             <div class="rwd_dropdown">
                 <i id="menu_sort" class="fa-solid fa-bars" onclick="showMenuSort()"></i>
                 <div class="rwd_dropdown_content" id="rwd_dropbtn">
@@ -51,44 +55,16 @@
     <main class="row">
         <div class="product_container">
             <div class="product_item" id="showProduct"></div>
+            <div id="showProductDetail"></div>
         </div>
-        <div class="table">
-            <h2>Giỏ hàng của bạn</h2><br>
-            <table>
-                <tr>
-                    <th>Sản phẩm</th>
-                    <th>Tên</th>
-                    <th>Đơn giá</th>
-                    <th>Số lượng</th>
-                    <th>Remove</th>
-                    <th>Total Amount</th>
-                </tr>
-                <tbody id="money">
-
-                </tbody>
-                <tr>
-                    <td colspan="5">Tổng</td>
-                    <td id="total-money"></td>
-                </tr>
-            </table> 
-        </div>
-        <fieldset class="customer_info">
-            <form action="">
-                <div style="text-align: center;">THÔNG TIN KHÁCH HÀNG</div>
-                <label for="">Số điện thoại</label><br>
-                <input id="phonenumber" type="text" required><br>
-                <label for="">Địa chỉ</label><br>
-                <input id="address" type="text" required><br><br>
-                <button onclick="orderConfirm(event)">Xác nhận đặt hàng</button>
-            </form>
-        </fieldset>
-        
+      
     </main>
     <footer id="myFooter">
-        
+
     </footer>
 </body>
 <script src="/js/footer.js"></script>
-<script src="/js/cart.js"></script>
+<script src="/js/detailProduct.js"></script>
+
 
 </html>
