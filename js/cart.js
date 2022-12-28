@@ -70,14 +70,15 @@ function orderConfirm(e){
   let address = document.getElementById("address");
   let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
 
+  
   if(phonenumber.value != "" && address.value != ""){
     let customerInfo = [{
       phonenumber: phonenumber.value,
       address: address.value,
     }];
-    customerInfo.push(listProductCart)
+    customerInfo.push(listProductCart);
     localStorage.setItem("customerInfo", JSON.stringify(customerInfo));
-    console.log(customerInfo);
+
     alert("Chúng tôi đã tiếp nhận đơn hàng. Xin cảm ơn!")
     phonenumber.value = "";
     address.value = "";

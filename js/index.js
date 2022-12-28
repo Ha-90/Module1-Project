@@ -253,7 +253,7 @@ function logOut() {
   for (i = 0; i < listUser.length; i++) {
     if (listUser[i].status) {
       listUser[i].status = false;
-      alert("Goodbye!");
+      // alert("Goodbye!");
       localStorage.setItem("listUser", JSON.stringify(listUser));
       hideShowUser();
     }

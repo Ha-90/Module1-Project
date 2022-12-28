@@ -36,7 +36,7 @@ function checkAccLogged(){
                 break;
             }
             if ((listUser[i].email != "admin@book.com")&&(listUser[i].email == email) && (listUser[i].password == password)) {
-                alert("Đăng nhập thành công!");
+                // alert("Đăng nhập thành công!");
                 location.href = "/index.html"; 
                 listUser[i].status = true;
                 localStorage.setItem("listUser", JSON.stringify(listUser));           
