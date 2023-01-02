@@ -1,7 +1,21 @@
-
+// Xác định người dùng nào đang online
+function userId() {
+  let flag = false;
+  let listUser = localStorage.getItem("listUser");
+  listUser = JSON.parse(listUser);
+  for (i = 0; i < listUser.length; i++) {
+    if (listUser[i].status) {
+      flag = i;
+      break;
+    }
+  }
+  return flag;
+}
 // Hiển thị thông tin sp và số tiền trong giỏ hàng Cart
 function payCart() {
-  let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
+  let userid = userId();
+  let listUser = JSON.parse(localStorage.getItem("listUser"));
+  let listProductCart = listUser[userid].cart;
   let data = "";
   for (i = 0; i < listProductCart.length; i++) {
     data += `<tr>
@@ -21,7 +35,9 @@ payCart();
 
 // Tính tổng số tiền trong Cart
 function totalMoney() {
-  let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
+ let userid = userId();
+ let listUser = JSON.parse(localStorage.getItem("listUser"));
+ let listProductCart = listUser[userid].cart;
   let money = 0;
   for (i = 0; i < listProductCart.length; i++) {
     money += listProductCart[i].price * listProductCart[i].quantity;
@@ -32,11 +48,14 @@ totalMoney();
 
 // Remove sản phẩm khỏi cart
 function removeProduct(i) {
-  let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
-  console.log(listProductCart);
+  let userid = userId();
+  let listUser = JSON.parse(localStorage.getItem("listUser"));
+  let listProductCart = listUser[userid].cart;
   listProductCart.splice(i, 1);
-  localStorage.setItem("listProductCart", JSON.stringify(listProductCart));
-  payCart();
+  listUser[userid].cart = listProductCart;
+  console.log(listUser);
+  localStorage.setItem("listUser", JSON.stringify(listUser));
+    payCart();
   totalMoney();
 }
 
@@ -46,9 +65,12 @@ function changeQuantity(i) {
   let value = document.querySelectorAll("#changeValue")[i].value;
   console.log(value);
 
-  let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
+   let userid = userId();
+   let listUser = JSON.parse(localStorage.getItem("listUser"));
+   let listProductCart = listUser[userid].cart;
   if (value < 0) {
     alert("Không thể thực hiện hành động");
+    value = 1;
     return false;
   } else if (value == 0) {
     let confirm1 = confirm("Bạn thực sự muốn xóa sp?");
@@ -56,36 +78,39 @@ function changeQuantity(i) {
       listProductCart.splice(i, 1);
     }
   } else {
-    listProductCart[i].quantity = value;
+    listProductCart[i].quantity = parseInt(value);
   }
-  localStorage.setItem("listProductCart", JSON.stringify(listProductCart));
+  listUser[userid].cart = listProductCart;
+  console.log(listUser);
+  localStorage.setItem("listUser", JSON.stringify(listUser));
   payCart();
   totalMoney();
 }
 
 // Xác nhận đặt hàng
-function orderConfirm(e){
+function orderConfirm(e) {
   e.preventDefault();
   let phonenumber = document.getElementById("phonenumber");
   let address = document.getElementById("address");
-  let listProductCart = JSON.parse(localStorage.getItem("listProductCart"));
+  let userid = userId();
+  let listUser = JSON.parse(localStorage.getItem("listUser"));
+  let listProductCart = listUser[userid].cart;
 
-  
-  if(phonenumber.value != "" && address.value != ""){
-    let customerInfo = [{
-      phonenumber: phonenumber.value,
-      address: address.value,
-    }];
+  if (phonenumber.value != "" && address.value != "") {
+    let customerInfo = [
+      {
+        phonenumber: phonenumber.value,
+        address: address.value,
+      },
+    ];
     customerInfo.push(listProductCart);
     localStorage.setItem("customerInfo", JSON.stringify(customerInfo));
 
-    alert("Chúng tôi đã tiếp nhận đơn hàng. Xin cảm ơn!")
+    alert("Chúng tôi đã tiếp nhận đơn hàng. Xin cảm ơn!");
     phonenumber.value = "";
     address.value = "";
+  } else {
+    alert("Vui lòng nhập đầy đủ thông tin");
+    return;
   }
-  else {
-    alert("Vui lòng nhập đầy đủ thông tin")
-    return
-  }
-
 }

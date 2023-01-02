@@ -194,7 +194,7 @@ function showUserInfo() {
             <tr>
             <td>${i + 1}</td>
             <td>${listUser[i].email}</td>
-            <td>${listUser[i].password}</td>
+            <td>********</td>
             </tr>
           `;
   }
@@ -203,3 +203,34 @@ function showUserInfo() {
 }
 showProductInfo();
 
+// show đơn hàng
+function showOrderInfo() {
+  let container_viewOrder = document.getElementById("container_viewOrder");
+  let customerInfo = JSON.parse(localStorage.getItem("customerInfo"));
+  let orderArray = customerInfo[1];
+  let data = "";
+  for (i = 0; i < orderArray.length; i++) {
+    data += `
+          <tr>
+            <td>${i + 1}</td>
+            <td>${customerInfo[0].phonenumber}</td>
+            <td>${customerInfo[0].address}</td>
+              <td>${orderArray[i].name}</td>
+              <td>${orderArray[i].quantity}</td>
+              <td>${orderArray[i].price}</td>
+              <td>${orderArray[i].quantity * orderArray[i].price}</td>
+          </tr> 
+          `;
+    }
+    
+    container_viewOrder.style.display = "block";
+    document.getElementById("showOrder").innerHTML = data;
+    
+    // console.log(customerInfo);
+  // console.log(customerInfo[0].phonenumber, customerInfo[0].address);
+  // let arrayList = customerInfo[1];
+  // for (let i = 0; i < arrayList.length; i++) {
+    showOrderInfo();
+  //   console.log(arrayList[i].name, arrayList[i].quantity, arrayList[i].price);
+  // }
+}

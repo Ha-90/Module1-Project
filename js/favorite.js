@@ -1,9 +1,23 @@
+// Xác định người dùng nào đang online
+function userId() {
+  let flag = false;
+  let listUser = localStorage.getItem("listUser");
+  listUser = JSON.parse(listUser);
+  for (i = 0; i < listUser.length; i++) {
+    if (listUser[i].status) {
+      flag = i;
+      break;
+    }
+  }
+  return flag;
+}
 
 //Hiển thị Favorite
 function viewFavorite() {
-
-  let listFavorite = JSON.parse(localStorage.getItem("listFavorite"));
-  if (listFavorite.length == "") {
+  let userid = userId();
+  let listUser = JSON.parse(localStorage.getItem("listUser"));
+  let listFavorite = listUser[userid].favorite;
+  if (listFavorite.length == 0) {
     document.getElementById("showProduct").innerHTML = "";
     return;
   }
@@ -26,14 +40,16 @@ function viewFavorite() {
 }
 viewFavorite();
 
-
 // Remove sp khỏi Favorite
 function removeFavorite(id) {
-  let listFavorite = JSON.parse(localStorage.getItem("listFavorite"));
+  let userid = userId();
+  let listUser = JSON.parse(localStorage.getItem("listUser"));
+  let listFavorite = listUser[userid].favorite;
   for (i = 0; i < listFavorite.length; i++) {
     if (listFavorite[i].id == id) listFavorite.splice(i, 1);
   }
-  localStorage.setItem("listFavorite", JSON.stringify(listFavorite));
+ listUser[userid].favorite = listFavorite;
+ localStorage.setItem("listUser", JSON.stringify(listUser));
   viewFavorite();
   // window.location.reload();
 }
@@ -42,50 +58,50 @@ function removeFavorite(id) {
 function addToCart(id) {
   alert("Đã thêm sản phẩm vào giỏ hàng");
   let listProduct = JSON.parse(localStorage.getItem("listProduct"));
-  let listProductCart = localStorage.getItem("listProductCart");
-  if (listProductCart == null) {
-    listProductCart = [];
-    for (let i = 0; i < listProduct.length; i++) {
-      if (listProduct[i].id == id) {
-        listProductCart.push(listProduct[i]);
-        listProductCart[listProductCart.length - 1].quantity = 1;
-        localStorage.setItem(
-          "listProductCart",
-          JSON.stringify(listProductCart)
-        );
-        break;
-      }
-    }
-  } else {
-    let listProductAddCart = JSON.parse(listProductCart);
+ let userid = userId();
+    let listUser = JSON.parse(localStorage.getItem("listUser"));
+    let listUserCart = listUser[userid].cart;
 
-    for (let i = 0; i < listProduct.length; i++) {
-      flag = false;
-      position = 0;
-      if (listProduct[i].id == id) {
-        for (let j = 0; j < listProductAddCart.length; j++) {
-          if (listProductAddCart[j].id == id) {
-            flag = true;
-            position = j;
-            break;
+    if (listUserCart.length == 0) {
+      for (let i = 0; i < listProduct.length; i++) {
+        if (listProduct[i].id == id) {
+          listUserCart.push(listProduct[i]);
+          listUserCart[0].quantity = 1;
+          listUser[userid].cart = listUserCart;
+          console.log(listUser);
+          localStorage.setItem("listUser", JSON.stringify(listUser));
+          break;
+        }
+      }
+    } else {
+      // let listUserCart = JSON.parse(listProductCart);
+      for (let i = 0; i < listProduct.length; i++) {
+        flag = false;
+        position = 0;
+        if (listProduct[i].id == id) {
+          for (let j = 0; j < listUserCart.length; j++) {
+            if (listUserCart[j].id == id) {
+              flag = true;
+              position = j;
+              break;
+            } else {
+              flag = false;
+            }
+          }
+          if (flag) {
+            console.log("SP đã có trong giỏ hàng");
+            console.log(position);
+            listUserCart[position].quantity += 1;
+                          console.log(listUserCart);
           } else {
-            flag = false;
+            listUserCart.push(listProduct[i]);
+            // console.log(listUserCart.length);
+            listUserCart[listUserCart.length-1].quantity = 1;
           }
         }
-        console.log(flag);
-        if (flag == true) {
-          console.log("SP đã có trong giỏ hàng");
-          console.log(position);
-          listProductAddCart[position].quantity += 1;
-        } else {
-          listProductAddCart.push(listProduct[i]);
-          listProductAddCart[listProductAddCart.length - 1].quantity = 1;
-        }
+        listUser[userid].cart = listUserCart;
+        localStorage.setItem("listUser", JSON.stringify(listUser));
       }
-      localStorage.setItem(
-        "listProductCart",
-        JSON.stringify(listProductAddCart)
-      );
     }
-  }
 }
+

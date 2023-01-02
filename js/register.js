@@ -34,6 +34,8 @@ function checkPass(e) {
     password: firstPass,
     answer: answer,
     status: false,
+    cart: [],
+    favorite: [],
   };
   let flag = false;
 
